@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['api\\server.py'],
-             pathex=['C:\\Users\\bbeaudoin\\Documents\\Dev\\Electron-Vue-Python-Stack'],
+             pathex=['C:\\Users\\mnicd\\Documents\\CellDetectionSystem\\Electron-Vue-Python-Stack'],
              binaries=[],
              datas=[],
              hiddenimports=[],

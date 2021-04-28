@@ -2,12 +2,17 @@
     <nav>
         <router-link class="nav-link" :to="{ name: 'Index'}">
             <div>
-                <span>WEL</span>
+                <span>IDX</span>
             </div>
         </router-link>
-        <router-link class="nav-link" :to="{ name: 'About'}">
+        <router-link class="nav-link" :to="{ name: 'Resistence'}">
             <div>
-                <span>ABO</span>
+                <span>RES</span>
+            </div>
+        </router-link>
+        <router-link class="nav-link" :to="{ name: 'Pressure'}">
+            <div>
+                <span>PRS</span>
             </div>
         </router-link>
     </nav>

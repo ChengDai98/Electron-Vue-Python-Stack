@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '../components/Index.vue'
-import About from '../components/About.vue'
+import Resistence from '../components/Resistence.vue'
+import Pressure from '../components/Pressure.vue'
 
 Vue.use(Router)
 
@@ -10,14 +11,19 @@ export default new Router({
     linkExactActiveClass: 'active',
     routes: [
         {
-            path: '/about',
-            name: 'About',
-            component: About
-        },
-        {
-            path: '/',
+            path: '/index',
             name: 'Index',
             component: Index
+        },
+        {
+            path: '/resistence',
+            name: 'Resistence',
+            component: Resistence
+        },
+        {
+            path: '/pressure',
+            name: 'Pressure',
+            component: Pressure
         }
     ]
 })

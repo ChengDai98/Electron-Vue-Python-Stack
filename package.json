@@ -36,5 +36,8 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
-  "dependencies": {}
+  "dependencies": {
+    "echarts": "^5.1.1",
+    "view-design": "^4.5.0"
+  }
 }

@@ -1,7 +1,7 @@
 <template>
     <div id="titlebar">
         <div class="window-info">
-            <span class="win-title">Title</span>
+            <span class="win-title">APPLICATION</span>
         </div>
         <div class="window-action">
             <a class="icon win-min" @click="minimizeWindow">
