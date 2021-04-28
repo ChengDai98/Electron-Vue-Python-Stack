@@ -1,28 +1,67 @@
 <template>
     <div>
         <div id="myChart">
-
         </div>
+            <div class="demo-split">
+            <Split v-model="split1">
+                <div slot="left" class="demo-split-pane">
+                    <List border=ture size="small">
+                    <ListItem>
+                        Averaging
+                        <InputNumber :min="0" v-model="value1" size="small"> 
+                        </InputNumber>
+                    </ListItem>
+                    <ListItem>
+                        Frequency
+                        <InputNumber :min="0" v-model="value2" size="small"> 
+                        </InputNumber>
+                    </ListItem>
+                    <ListItem>
+                        Amplitude
+                        <InputNumber :min="0" :step="0.02" v-model="value3" size="small"> 
+                        </InputNumber>
+                    </ListItem>
+                    <ListItem>
+                        Holding Voltage
+                        <InputNumber v-model="value4" size="small"> 
+                        </InputNumber>
+                    </ListItem>
+                    <ListItem>
+                         <Select v-model="model1" size="small" style="width:100px">
+                            <Option v-for="item in avgList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                        </Select>
+                    </ListItem>
+                </List>
+                </div>
+                <div slot="right" class="demo-split-pane">
+                    <List border=ture size="small">
+                        <ListItem>
+                            resistence2 : {{resistence2}}
+                        </ListItem>
 
-            <List header="Header" footer="Footer" border size="small">
-                <ListItem>
-                    Averaging
-                    <InputNumber :min="0" v-model="value1" size="small"> 
-                    </InputNumber>
-                </ListItem>
-                <ListItem>
-                    Frequency
-                    <InputNumber :min="0" v-model="value2" size="small"> 
-                    </InputNumber>
-                </ListItem>
-                <ListItem>
-                    Amplitude
-                    <InputNumber :min="0" :step="0.02" v-model="value3" size="small"> 
-                    </InputNumber>
-                </ListItem>
-            </List>
+                        <ListItem>
+                            averange : {{averange}}    
+                        </ListItem>
+
+                        <ListItem>
+                            minimum : {{minimum}}    
+                        </ListItem>
+
+                        <ListItem>
+                            Nagative Peak : {{na_peak}}
+                        </ListItem>
+
+                        <ListItem>
+                            resistence : {{resistence}}
+                        </ListItem>
+                    </List>
+                </div>
+            </Split>
+        </div>
+            
 
         <div>
+            initialize
             <i-switch v-model="switch1" @on-change="change" />
         </div>
     </div>
@@ -36,10 +75,28 @@ export default {
     data () {
         return {
         	// 实时数据数组
+            avgList: [
+                    {
+                        value: 'Voltage Clamp',
+                        label: 'Voltage Clamp'
+                    },
+                    {
+                        value: 'Current Clamp',
+                        label: 'Voltage Clamp'
+                    }
+                ],
+            model1: '',
+            resistence : 0,
+            na_peak : 0,
+            minimum : 0, 
+            averange : 0,
+            resistence2 : 0,
+            split1: 0.5,
             switch1 : false,
             value1 : 7,
             value2 : 20,
             value3 : 0.02,
+            value4 : 0,
             date: [],
             yieldRate: [],
             //yieldIndex: [],
@@ -129,5 +186,12 @@ export default {
   width: 100%;
   height: 500px;
   margin: 0 auto;
+}
+.demo-split{
+        height: 250px;
+        border: 1px solid #dcdee2;
+    }
+.demo-split-pane{
+    padding: 10px;
 }
 </style>
