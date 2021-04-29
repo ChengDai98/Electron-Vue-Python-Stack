@@ -8,27 +8,27 @@
                     <List border=ture size="small">
                     <ListItem>
                         Averaging
-                        <InputNumber :min="0" v-model="value1" size="small"> 
+                        <InputNumber :min="0" v-model="value1" size="small" @on-change = 'click0'> 
                         </InputNumber>
                     </ListItem>
                     <ListItem>
                         Frequency
-                        <InputNumber :min="0" v-model="value2" size="small"> 
+                        <InputNumber :min="0" v-model="value2" size="small" @on-change = 'click1'> 
                         </InputNumber>
                     </ListItem>
                     <ListItem>
                         Amplitude
-                        <InputNumber :min="0" :step="0.02" v-model="value3" size="small"> 
+                        <InputNumber :min="0" :step="0.02" v-model="value3" size="small" @on-change = 'click2'> 
                         </InputNumber>
                     </ListItem>
                     <ListItem>
                         Holding Voltage
-                        <InputNumber v-model="value4" size="small"> 
+                        <InputNumber v-model="value4" size="small" @on-change = 'click3'> 
                         </InputNumber>
                     </ListItem>
                     <ListItem>
                          <Select v-model="model1" size="small" style="width:100px">
-                            <Option v-for="item in avgList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                            <Option v-for="item in avgList" :value="item.value" :key="item.value" @on-change = 'select0'>{{ item.label }}</Option>
                         </Select>
                     </ListItem>
                 </List>
@@ -82,7 +82,7 @@ export default {
                     },
                     {
                         value: 'Current Clamp',
-                        label: 'Voltage Clamp'
+                        label: 'Current Clamp'
                     }
                 ],
             model1: '',
@@ -164,7 +164,7 @@ export default {
         	// 从接口获取数据并添加到数组
             if (this.switch1 == false) return
             axios.get('/resistence').then((res) => {
-                this.yieldRate.push(res.data.val1);
+                this.yieldRate.push(res.data.resistence2);
                 this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
                 // 重新将数组赋值给echarts选项
                 this.echartsOption.xAxis.data = this.date;
@@ -175,7 +175,34 @@ export default {
         change : function(status) {
             console.log(status)
             this.$Message.info('switch status：' + status);
-            axios.post('/resistence', {}).then()
+            axios.post('/resistence', {'code' : 'ch0', val : status}).then(() => {
+                console.log(status)
+            })
+        },
+        click0 : function(status) {
+            axios.post('/resistence', {'code' : 'c0', val : status}).then(() => {
+                console.log(status)
+            })
+        },
+        click1 : function(status) {
+            axios.post('/resistence', {'code' : 'c1', val : status}).then(() => {
+                console.log(status)
+            })
+        },
+        click2 : function(status) {
+            axios.post('/resistence', {'code' : 'c2', val : status}).then(() => {
+                console.log(status)
+            })
+        },
+        click3 : function(status) {
+            axios.post('/resistence', {'code' : 'c3', val : status}).then(() => {
+                console.log(status)
+            })
+        },
+        select0 : function(status) {
+            axios.post('/resistence', {'code' : 's0', val : status}).then(() => {
+                console.log(status)
+            })
         },
     }
 }
