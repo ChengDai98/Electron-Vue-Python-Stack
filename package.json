@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "echarts": "^5.1.1",
-    "view-design": "^4.5.0"
+    "view-design": "^4.5.0",
+    "vue-web-cam": "^1.9.0"
   }
 }

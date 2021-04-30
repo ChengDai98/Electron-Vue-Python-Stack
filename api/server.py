@@ -125,17 +125,23 @@ nitestOBJ = nidaqController()
 def get_resist():
     if request.method == 'POST':
         code = request.get_json()['code']
+        print(request.get_json()['val'])
         if code == 'ch0':
             pass
         elif code == 'c0':
+            print("set avg:", request.get_json()['val'])
             nitestOBJ.set_averaging(request.get_json()['val'])
         elif code == 'c1':
+            print("set fre:", request.get_json()['val'])
             nitestOBJ.set_frequency(request.get_json()['val'])
         elif code == 'c2':
+            print("set amp:", request.get_json()['val'])
             nitestOBJ.set_amplitude(request.get_json()['val'])
         elif code == 'c3':
+            print(request.get_json()['val'])
             nitestOBJ.set_holding_voltage(request.get_json()['val'])
         elif code == 's0':
+            print(request.get_json()['val'])
             if request.get_json()['val'] == 'Voltage Clamp':
                 nitestOBJ.set_clamp_args(0)
             else:
@@ -144,7 +150,7 @@ def get_resist():
             print("invalid input")
 
     if request.method == 'GET':
-        nitestOBJ.gen_new_squarewave()
+         # nitestOBJ.gen_new_squarewave()
         return jsonify(nitestOBJ.get_data())
 
     return "resist"

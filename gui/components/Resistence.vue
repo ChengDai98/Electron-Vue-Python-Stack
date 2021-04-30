@@ -145,7 +145,7 @@ export default {
     mounted () {
         this.myChart = echarts.init(document.getElementById('myChart'), 'light');	// 初始化echarts, theme为light
         this.myChart.setOption(this.echartsOption);	// echarts设置初始化选项
-        setInterval(this.addData, 1000);	// 每三秒更新实时数据到折线图
+        setInterval(this.addData, 500);	// 每三秒更新实时数据到折线图
     },
     methods: {
     	// 获取当前时间

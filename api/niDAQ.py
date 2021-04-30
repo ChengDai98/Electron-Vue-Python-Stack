@@ -140,8 +140,11 @@ class nidaqController:
             master_task.stop()
             slave_task.stop()
 
-            # master_task.close()
-            # slave_task.close()
+
+            master_task.close()
+            slave_task.close()
+
+            
 
             # function hasn't be complete yet
             # self.filter(10)
