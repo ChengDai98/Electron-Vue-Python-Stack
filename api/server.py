@@ -9,6 +9,7 @@ import nidaqmx
 from testFlask import *
 from smacqDAQ import *
 from niDAQ import *
+from PriorES10ZE import *
 
 from flask import Response
 import json
@@ -19,13 +20,13 @@ CORS(app)
 counter = 0
 print(os.environ)
 
-
-@app.route("/index", methods=['GET'])
+mrcObj = PriorES10ZE()
+@app.route("/microscope", methods=['GET', 'POST'])
 def index():
-    return jsonify({
-        'title': "Welcome to Electron - Vue - Python stack !",
-        'description': 'This content came from the api backend in python using the flask framework'
-        })
+    cmd = request.get_json()['command']
+    print(cmd)
+    mrcObj.send_command('C 100')
+
 
 
 @app.route('/increment')

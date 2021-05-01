@@ -1,8 +1,8 @@
 <template>
     <nav>
-        <router-link class="nav-link" :to="{ name: 'Index'}">
+        <router-link class="nav-link" :to="{ name: 'Microscope'}">
             <div>
-                <span>IDX</span>
+                <span>MSP</span>
             </div>
         </router-link>
         <router-link class="nav-link" :to="{ name: 'Resistence'}">

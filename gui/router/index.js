@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '../components/Index.vue'
+import Microscope from '../components/Microscope.vue'
 import Resistence from '../components/Resistence.vue'
 import Pressure from '../components/Pressure.vue'
 
@@ -11,9 +11,9 @@ export default new Router({
     linkExactActiveClass: 'active',
     routes: [
         {
-            path: '/index',
-            name: 'Index',
-            component: Index
+            path: '/microscope',
+            name: 'Microscope',
+            component: Microscope
         },
         {
             path: '/resistence',
