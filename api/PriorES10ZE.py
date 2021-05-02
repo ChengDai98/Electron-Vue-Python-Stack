@@ -58,8 +58,9 @@ class PriorES10ZE(Controller):
             ]
 
 if __name__ == '__main__':
-    with PriorES10ZE() as p:
-        p.send_command('C 100')
-        p.send_command('U')
-        res = p.send_command('$')
-        print(res)
+    p = PriorES10ZE()
+    p.log_on()
+    p.send_command('C 100')
+    p.send_command('U')
+    res = p.send_command('$')
+    print(res)

@@ -21,6 +21,7 @@ counter = 0
 print(os.environ)
 
 mrcObj = PriorES10ZE()
+mrcObj.log_on()
 @app.route("/microscope", methods=['GET', 'POST'])
 def index():
     cmd = request.get_json()['command']
