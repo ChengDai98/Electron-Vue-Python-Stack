@@ -81,14 +81,14 @@ class nidaqController:
 
     def filter(self, step_length): # not complete yet
         print("wave filter")
-        sum = 0
+        """ sum = 0
         win = []
         for i in self.squarewave:
             win.append(self.squarewave[i])
             if len(win) > step_length:
                 tmp = win.pop(0)
                 sum = sum - tmp
-            self.squarewave[i] = sum / step_length
+            self.squarewave[i] = sum / step_length """
 
     def get_data(self) -> list:
         with nidaqmx.Task() as master_task, nidaqmx.Task() as slave_task:
@@ -147,7 +147,7 @@ class nidaqController:
             
 
             # function hasn't be complete yet
-            # self.filter(10)
+            self.filter(10)
             
 
             data1 = data

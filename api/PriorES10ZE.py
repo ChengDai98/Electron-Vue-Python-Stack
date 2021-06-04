@@ -37,10 +37,14 @@ class Controller(object):
         self.ser.write((command+'\r\n').encode())
         time.sleep(0.2)
         message = self.ser.read(self.ser.inWaiting()).decode()
+        tle = 0
         while not message:
             time.sleep(0.2)
             message = self.ser.read(self.ser.inWaiting()).decode()
             print('waiting for reply...')
+            tle = tle + 0.2
+            if tle > 2 :
+                break~
         print (command, message)
         return message
 
